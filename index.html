@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Search Visibility Scorecard | Keegan Goocin</title>
+  <meta name="description" content="Get a free 15-point Search Visibility Scorecard. See how your business shows up on Google, local search and AI answers. Delivered by Keegan Goocin within 48 hours." />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Search Visibility Scorecard | Keegan Goocin" />
+  <meta property="og:description" content="See exactly where your business is invisible online — and what to fix first. Free 15-point diagnostic delivered within 48 hours." />
+  <meta property="og:type" content="website" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-card: #111827;
+      --bg-elevated: #1a2332;
+      --border: rgba(148, 163, 184, 0.12);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent: #2dd4bf;
+      --accent-hover: #14b8a6;
+      --accent-soft: rgba(45, 212, 191, 0.12);
+      --blue: #38bdf8;
+      --green: #34d399;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140%;
+      height: 70vh;
+      background: radial-gradient(ellipse at center, rgba(45, 212, 191, 0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 18, 32, 0.85);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .header-cta {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .header-cta:hover { color: var(--accent); }
+
+    .hero {
+      padding: 64px 0 48px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      border: 1px solid rgba(45, 212, 191, 0.2);
+    }
+
+    .badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.25);
+    }
+
+    h1 {
+      font-size: clamp(32px, 6vw, 44px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+
+    h1 .highlight { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    .hero-sub strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0b1220;
+      padding: 15px 28px;
+      box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.3), 0 8px 24px -6px rgba(45, 212, 191, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.4), 0 12px 28px -6px rgba(45, 212, 191, 0.45);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    .section { padding: 28px 0 48px; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 32px;
+      letter-spacing: -0.02em;
+    }
+
+    .cards { display: grid; gap: 14px; }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover { border-color: rgba(45, 212, 191, 0.25); }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .steps {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-content h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .step-content p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .form-section { padding: 20px 0 64px; }
+
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .form-card .form-intro {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+
+    .form-group label .req { color: var(--accent); }
+
+    input, textarea, select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 13px 15px;
+      font-family: var(--font);
+      font-size: 15px;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--text-dim); }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(45, 212, 191, 0.5);
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.12);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 520px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .form-footer { margin-top: 8px; }
+
+    .form-note {
+      font-size: 12.5px;
+      color: var(--text-dim);
+      margin-top: 14px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .form-note a { color: var(--accent); text-decoration: none; }
+
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 24px 10px;
+    }
+
+    .success-state.visible { display: block; }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--accent-soft);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+    }
+
+    .success-state h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .success-state p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 360px;
+      margin: 0 auto 24px;
+    }
+
+    .trust {
+      border-top: 1px solid var(--border);
+      padding: 40px 0 48px;
+      text-align: center;
+    }
+
+    .trust-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .trust-items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 24px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .trust-items span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .trust-items em {
+      color: var(--text);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .about {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .about p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 16px;
+      line-height: 1.65;
+    }
+
+    .about strong { color: var(--text); }
+
+    .about a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0 40px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    .hidden { display: none !important; }
+
+    .btn-full {
+      width: 100%;
+      padding: 16px;
+      font-size: 15.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">KEEGAN <span>GOOCIN</span></a>
+      <a href="https://wa.me/27679521325?text=Hi%20Keegan%2C%20I%20have%20a%20question%20about%20the%20Search%20Visibility%20Scorecard." class="header-cta" target="_blank" rel="noopener">
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="badge">Free · 15-point diagnostic · 48-hour delivery</div>
+        
+        <h1>See exactly where your business is <span class="highlight">invisible</span> online.</h1>
+        
+        <p class="hero-sub">
+          Get a clear, practical <strong>Search Visibility Scorecard</strong> that shows how you currently show up on Google, local search and AI answers — and what to fix first.
+        </p>
+
+        <a href="#form" class="btn btn-primary">
+          Get My Free Scorecard
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">What you receive</p>
+        <h2 class="section-title">A focused diagnostic, not a 40-page report</h2>
+
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">🔍</div>
+            <div>
+              <h3>Google & Local Visibility</h3>
+              <p>Where you currently rank (or don’t) for the searches that matter, plus Google Business Profile health.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🤖</div>
+            <div>
+              <h3>AI Answer Readiness</h3>
+              <p>How well structured your site is for ChatGPT, Google AI Overviews and other answer engines.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎯</div>
+            <div>
+              <h3>Priority Fixes</h3>
+              <p>The highest-impact changes ranked so you know exactly what to do first — without the fluff.</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📋</div>
+            <div>
+              <h3>Clear Next Steps</h3>
+              <p>A practical action list you can hand to a developer, agency, or implement yourself.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 12px;">
+      <div class="container">
+        <p class="section-label">Process</p>
+        <h2 class="section-title">Simple. Fast. Useful.</h2>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <h3>Tell me about your business</h3>
+              <p>Quick form below — name, website, and best contact.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <h3>I run the 15-point check</h3>
+              <p>Google, local search, AI readiness and conversion basics.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <h3>You get the Scorecard</h3>
+              <p>Delivered within 48 hours via WhatsApp or email.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" id="form">
+      <div class="container">
+        <div class="form-card">
+          <div id="form-state">
+            <h2>Request your free Scorecard</h2>
+            <p class="form-intro">Takes less than 60 seconds. I’ll send the completed Scorecard within 48 hours.</p>
+
+            <form id="scorecard-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Your name <span class="req">*</span></label>
+                  <input type="text" id="name" name="name" placeholder="Keegan Goocin" required />
+                </div>
+                <div class="form-group">
+                  <label for="business">Business name <span class="req">*</span></label>
+                  <input type="text" id="business" name="business" placeholder="Your company" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="website">Website URL <span class="req">*</span></label>
+                <input type="url" id="website" name="website" placeholder="https://yourwebsite.co.za" required />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="whatsapp">WhatsApp number <span class="req">*</span></label>
+                  <input type="tel" id="whatsapp" name="whatsapp" placeholder="+27 67 952 1325" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email (optional)</label>
+                  <input type="email" id="email" name="email" placeholder="you@business.com" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="note">Biggest visibility challenge right now? (optional)</label>
+                <textarea id="note" name="note" placeholder="e.g. We get almost no enquiries from Google, or our competitors always appear above us..."></textarea>
+              </div>
+
+              <div class="form-footer">
+                <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+                  Send Me the Free Scorecard
+                </button>
+                <p class="form-note">
+                  POPIA compliant. Your details are only used to deliver the Scorecard and follow up if you want help implementing the fixes. 
+                  No spam, no lists sold.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <div class="success-state" id="success-state">
+            <div class="success-icon">✓</div>
+            <h3>You’re on the list</h3>
+            <p>Thanks — I’ve received your request. You’ll get your Search Visibility Scorecard within 48 hours via WhatsApp.</p>
+            <a href="https://wa.me/27679521325?text=Hi%20Keegan%2C%20I%20just%20requested%20the%20Scorecard." class="btn btn-primary" target="_blank" rel="noopener">
+              Message me on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="container">
+        <p class="trust-label">Built by someone who actually ships</p>
+        <div class="trust-items">
+          <span><em>10+</em> years commercial experience</span>
+          <span><em>Google</em> certified · Digital Marketing</span>
+          <span><em>Live</em> tools, not decks</span>
+          <span>Johannesburg · SA & International</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="about">
+        <p>
+          <strong>I’m Keegan Goocin</strong> — Co-Founder of BuzzCraft and the person who will personally review your site and send the Scorecard. 
+          I help South African and international businesses get found, chosen, and followed up with systems.
+        </p>
+        <a href="https://www.keegan.work" target="_blank" rel="noopener">View my portfolio →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        © 2026 Keegan Goocin · 
+        <a href="https://wa.me/27679521325" target="_blank" rel="noopener">WhatsApp</a> · 
+        <a href="mailto:kmgoocin@gmail.com">kmgoocin@gmail.com</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('scorecard-form');
+    const formState = document.getElementById('form-state');
+    const successState = document.getElementById('success-state');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const business = form.business.value.trim();
+      const website = form.website.value.trim();
+      const whatsapp = form.whatsapp.value.trim();
+
+      if (!name || !business || !website || !whatsapp) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const data = {
+        name,
+        business,
+        website,
+        whatsapp,
+        email: form.email.value.trim() || null,
+        note: form.note.value.trim() || null,
+        source: 'scorecard-landing',
+        timestamp: new Date().toISOString(),
+        userAgent: navigator.userAgent
+      };
+
+      try {
+        // Temporary simulation - replace with real endpoint later
+        await new Promise(resolve => setTimeout(resolve, 900));
+
+        formState.classList.add('hidden');
+        successState.classList.add('visible');
+        successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      } catch (err) {
+        console.error(err);
+        alert('Something went wrong. Please try again or message me directly on WhatsApp.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Me the Free Scorecard';
+      }
+    });
+  </script>
+</body>
+</html>
