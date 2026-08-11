@@ -513,29 +513,68 @@
     </div>
   </footer>
   <script>
+    const SUPABASE_URL = 'https://vovlxlhtbubccfwuuvrb.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZvdmx4bGh0YnViY2Nmd3V1dnJiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYzNDU4MzUsImV4cCI6MjEwMTkyMTgzNX0.HMb9OBKN8oDxD5S6mFitp4Y-Cq-ihQ58PrPs0iOXo0k';
+
     const form = document.getElementById('scorecard-form');
     const formState = document.getElementById('form-state');
     const successState = document.getElementById('success-state');
     const submitBtn = document.getElementById('submit-btn');
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
       const name = form.name.value.trim();
       const business = form.business.value.trim();
       const website = form.website.value.trim();
       const whatsapp = form.whatsapp.value.trim();
+      const email = form.email.value.trim() || null;
+      const note = form.note.value.trim() || null;
+
       if (!name || !business || !website || !whatsapp) {
         alert('Please fill in all required fields.');
         return;
       }
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
+
       try {
-        await new Promise(resolve => setTimeout(resolve, 900));
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            name,
+            business,
+            website,
+            whatsapp,
+            email,
+            note,
+            source: 'scorecard-landing',
+            delivered: false,
+            wa_reply: false,
+            discovery_call: false
+          })
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error('Supabase error:', errorText);
+          throw new Error('Failed to submit');
+        }
+
         formState.classList.add('hidden');
         successState.classList.add('visible');
         successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
       } catch (err) {
-        alert('Something went wrong. Please try again or message me on WhatsApp.');
+        console.error(err);
+        alert('Something went wrong. Please try again or message me directly on WhatsApp.');
         submitBtn.disabled = false;
         submitBtn.textContent = 'Send Me the Free Scorecard';
       }
